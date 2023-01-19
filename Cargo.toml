@@ -11,4 +11,15 @@ categories = ["network-programming"]
 keywords = ["tcp", "udp", "sockets", "networking", "async"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[features]
+default = ["json"]
+serde = ["dep:serde"]
+json = ["dep:serde_json", "serde"]
+
 [dependencies]
+serde = { version = "1.0.152", features = ["derive"], optional = true  }
+serde_json = { version = "1.0.91", optional = true }
+socket2 = "0.4.7"
+thiserror = "1.0.38"
+tokio = { version = "1.24.2", features = ["net", "time", "sync", "rt", "macros"] }
+tracing = "0.1.37"
