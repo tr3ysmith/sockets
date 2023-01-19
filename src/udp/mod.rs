@@ -9,6 +9,8 @@ mod sender;
 pub use datagram::Datagram;
 pub use events::*;
 
+pub use socket::UdpSocket;
+
 #[derive(Error, Debug)]
 pub enum Error {
     #[error("failed to bind socket using address: {address:?} - {error:?}")]
